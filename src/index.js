@@ -12,6 +12,10 @@ void ConnectDB();
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.status(200).json({ success: true, msg: "OK" });
+});
+
 app.use("/", router);
 
 app.use(errorMiddleware);
