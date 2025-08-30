@@ -13,7 +13,7 @@ app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.status(200).json({ success: true, msg: "True" });
+  res.status(200).json({ success: true, msg: "Welcome to dev.nazirov.kr" });
 });
 
 app.use("/", router);
