@@ -13,7 +13,7 @@ app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.status(200).json({ success: true, msg: "OK" });
+  res.status(200).json({ success: true, msg: "True" });
 });
 
 app.use("/", router);

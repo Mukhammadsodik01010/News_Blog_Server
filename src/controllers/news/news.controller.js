@@ -61,7 +61,7 @@ class NewsController {
     const { title, desc, image } = req.body;
     const { user_id } = req.user;
 
-    const existingNews = await NewsModel.findOne(title);
+    const existingNews = await NewsModel.findOne({title});
     if (existingNews) {
       throw new HttpException(
         StatusCodes.BAD_REQUEST,
@@ -74,7 +74,7 @@ class NewsController {
         StatusCodes.BAD_REQUEST,
         "Image file is not found"
       );
-    }
+    } 
     if (save_file.is_use) {
       throw new HttpException(
         StatusCodes.BAD_REQUEST,
@@ -99,7 +99,7 @@ class NewsController {
     await save_file.updateOne({
       is_use: true,
       where_used: "news",
-      user: user,
+      user: user_id,
     });
   };
 
